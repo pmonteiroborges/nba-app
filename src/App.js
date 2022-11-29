@@ -29,19 +29,51 @@ const gradeComparison = (a, b) => {
 }
 
 function App() {
-  const [currRoster, setCurrRoster] = useState([])
+  const [currRoster, setCurrRoster] = useState({
+    "PG": "",
+    "SG": "",
+    "SF": "",
+    "PF": "",
+    "C": "",
+  })
 
   const addPlayerToRoster = (player) => {
     // if the player is in the list, don't add it again
-    if (!currRoster.includes(player)) {
-      if (currRoster.length < 5) {
-        setCurrRoster(oldRoster => [...oldRoster, player])
-        return true
+    if (!Object.values(currRoster).includes(player)) {
+      if (Object.values(currRoster).filter(x => x !== "").length < 5) {
 
+        const pp = allStars[player]["Primary Position"]
+        const sp = allStars[player]["Secondary Position"]
+
+        if (currRoster[pp] === "") {
+          const newRoster = { ...currRoster }
+          newRoster[pp] = player
+          setCurrRoster(newRoster)
+
+          return true
+        } else if (currRoster[sp] === "") {
+          const newRoster = { ...currRoster }
+          newRoster[sp] = player
+          setCurrRoster(newRoster)
+
+          return true
+        } else {
+          return false
+        }
       }
       return false
     } else {
-      setCurrRoster(oldRoster => oldRoster.filter(oldPlayer => oldPlayer !== player))
+      const newRoster = { ...currRoster }
+
+      for (let pos of Object.keys(newRoster)) {
+        if (newRoster[pos] === player) {
+          newRoster[pos] = ""
+          break
+        }
+      }
+
+      console.log(newRoster)
+      setCurrRoster(newRoster)
       return true
     }
   }
@@ -69,10 +101,6 @@ function App() {
     players = players.filter(player =>
       filterByTeam.includes(allStars[player]["Team"]) || filterByTeam.length === 0)
 
-
-    console.log({ player: players })
-    console.log({ filterByTeam: filterByTeam })
-
     // sorting
     if (sortBy === "") {
 
@@ -89,7 +117,13 @@ function App() {
     }
 
     return players.map(
-      name => <Player playerData={allStars[name]} name={name} addToRoster={addPlayerToRoster} buttonText={currRoster.includes(name) ? "Remove from Roster" : "Add to Roster"} />
+      name => <Player
+        playerData={allStars[name]}
+        name={name}
+        addToRoster={addPlayerToRoster}
+        buttonText={Object.values(currRoster).includes(name) ? "Remove from Roster" : "Add to Roster"}
+        rosterSize={currRoster.length}
+      />
     )
   }
 

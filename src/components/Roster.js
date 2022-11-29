@@ -3,14 +3,19 @@ export default function Roster({
     roster,
     playerData
 }) {
-    const starters = roster.map(player =>
-        <p>{player}</p>
+
+    const starters = Object.keys(roster).map((pos) =>
+        <p>{pos}: {roster[pos]}</p>
     )
-    console.log(playerData)
-
-    const ovrs = roster.map(player => playerData[player]["OVR"])
 
 
+    const ovrs =
+        Object.values(roster).filter(player => player !== "")
+            .map(player =>
+                playerData[player]["OVR"]
+            )
+
+    console.log(roster)
     return (
         <div className="roster">
             {starters}

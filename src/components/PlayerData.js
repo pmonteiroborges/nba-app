@@ -17,11 +17,10 @@ export default function PlayerData({
     } else {
         teamName = teamName.toLowerCase()
     }
-    console.log({ teamName: teamName })
     return (
         <div className="player-facts">
             <div className="basic-facts">
-                <h3>{playerData["OVR"]}</h3>
+                <h1>{playerData["OVR"]}</h1>
                 <p>{playerData["Primary Position"]}</p>
                 <img className="team-logo" src={getTeamImg(teamName)}></img>
             </div>
@@ -32,7 +31,6 @@ export default function PlayerData({
                 </img>
                 <h4>{name}</h4>
             </div>
-
         </div>
     )
 }

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import playerCareerStats from '/Users/pedromonteiroborges/Desktop/uiux/nba-app/src/assets/player-career-stats.json';
 import PlayerStats from './PlayerStats';
 import PlayerData from './PlayerData';
 
@@ -9,6 +7,7 @@ export default function Player({
     name,
     addToRoster,
     buttonText,
+    rosterSize
 }) {
 
     const onRosterClick = () => {
@@ -21,7 +20,7 @@ export default function Player({
             <PlayerStats playerData={playerData} />
 
 
-            <button className="roster-button" onClick={onRosterClick}>
+            <button disabled={(rosterSize === 5 && buttonText === "Add to Roster")} className="roster-button" onClick={onRosterClick}>
                 {buttonText}
             </button>
         </div>

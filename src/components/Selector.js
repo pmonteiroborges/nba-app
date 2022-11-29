@@ -17,7 +17,7 @@ const statToExplanation = {
     "3PT": "how well a player can shoot behind the three point line",
     "Playmaking": "how well a player can faciliate his teammates",
     "Rebounding": "how well a player can grab rebounds after a miss",
-    "Defense": "how well a player can defend the opposing player",
+    "Defense": "how well a player can prevent the opposing player from scoring",
 }
 
 export default function Selector({
@@ -65,7 +65,6 @@ export default function Selector({
         </div>
     ))
 
-    console.log(shownTeams)
     return (
         <div className="selector">
             <div className="selector-segment" id="sorting">
