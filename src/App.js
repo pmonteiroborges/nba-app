@@ -1,14 +1,15 @@
-import './App.css';
 import { useState, useEffect } from 'react';
 import playerData from './assets/nba-players.json';
 import logo from './assets/nbalogo.webp'
 import Player from './components/Player';
 import Selector from './components/Selector';
 import { allStars } from './constants';
+import Collapsible from './components/Collapsible';
 
 
 const gradeComparison = (a, b) => {
   const gradeToNum = {
+    'S': 11,
     'A+': 10,
     'A': 9,
     'A-': 8,
@@ -53,13 +54,13 @@ function App() {
 
   const allStarPlayerComponents = () => {
     // sort players by alphabetical order by default
-    let players = allStarPlayerNames.sort()
+    let players = allStarPlayerNames
 
     // filtering
 
     // reset list if state lists becomes empty
     if (filterByPosition.length === 0 || filterByTeam.length === 0) {
-      players = allStarPlayerNames.sort()
+      players = allStarPlayerNames.sort((a, b) => a.split(" ")[1].localeCompare(b.split(" ")[1]))
     }
 
     players = players.filter(player =>
@@ -80,11 +81,13 @@ function App() {
       players.sort((a, b) => allStars[b]["OVR"] - allStars[a]["OVR"])
     }
     else if (sortBy === "Alphabetical") {
-      players.sort()
+      // sort by last name
+      players.sort((a, b) => a.split(" ")[1].localeCompare(b.split(" ")[1]))
     }
     else {
       players.sort((a, b) => gradeComparison(allStars[a][sortBy], allStars[b][sortBy]))
     }
+
     return players.map(
       name => <Player playerData={allStars[name]} name={name} addToRoster={addPlayerToRoster} buttonText={currRoster.includes(name) ? "Remove from Roster" : "Add to Roster"} />
     )
@@ -99,8 +102,9 @@ function App() {
         <h1>NBA All-Star Roster Selection</h1>
       </div>
 
+      {/* <Collapsible /> */}
       <div className='grid-container'>
-        <Selector roster={currRoster} setSortBy={setSortBy} setFilterByTeam={setFilterByTeam} setFilterByPosition={setFilterByPosition} />
+        <Selector roster={currRoster} playerData={allStars} setSortBy={setSortBy} setFilterByTeam={setFilterByTeam} setFilterByPosition={setFilterByPosition} />
 
         <div className='player-container'>
           {allStarPlayerComponents()}
@@ -111,5 +115,3 @@ function App() {
 }
 
 export default App;
-
-

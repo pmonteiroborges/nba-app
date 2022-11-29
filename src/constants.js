@@ -13,7 +13,7 @@ export const allStars = {
         "Secondary Position": "PF",
     },
     "Ja Morant": {
-        "Finishing": "A+",
+        "Finishing": "S",
         "Mid-Range": "A-",
         "3PT": "B",
         "Playmaking": "A+",
@@ -55,7 +55,7 @@ export const allStars = {
         "Finishing": "A-",
         "Mid-Range": "A",
         "3PT": "A+",
-        "Playmaking": "A+",
+        "Playmaking": "S",
         "Rebounding": "F",
         "Defense": "D+",
         "OVR": 90,
@@ -65,7 +65,7 @@ export const allStars = {
         "Secondary Position": "SG",
     },
     "Giannis Antetokounmpo": {
-        "Finishing": "A+",
+        "Finishing": "S",
         "Mid-Range": "C-",
         "3PT": "D+",
         "Playmaking": "A+",
@@ -80,7 +80,7 @@ export const allStars = {
     "Stephen Curry": {
         "Finishing": "A+",
         "Mid-Range": "A+",
-        "3PT": "A+",
+        "3PT": "S",
         "Playmaking": "A+",
         "Rebounding": "C+",
         "Defense": "B+",
@@ -92,7 +92,7 @@ export const allStars = {
     },
     "DeMar DeRozan": {
         "Finishing": "A+",
-        "Mid-Range": "A+",
+        "Mid-Range": "S",
         "3PT": "C-",
         "Playmaking": "B+",
         "Rebounding": "D+",
@@ -105,7 +105,7 @@ export const allStars = {
     },
     "Kevin Durant": {
         "Finishing": "A+",
-        "Mid-Range": "A+",
+        "Mid-Range": "S",
         "3PT": "A+",
         "Playmaking": "A",
         "Rebounding": "B-",
@@ -120,7 +120,7 @@ export const allStars = {
         "Finishing": "A+",
         "Mid-Range": "A+",
         "3PT": "B",
-        "Playmaking": "A+",
+        "Playmaking": "S",
         "Rebounding": "A",
         "Defense": "B+",
         "OVR": 96,
@@ -250,7 +250,7 @@ export const allStars = {
         "Finishing": "A+",
         "Mid-Range": "A+",
         "3PT": "A+",
-        "Playmaking": "A+",
+        "Playmaking": "S",
         "Rebounding": "A",
         "Defense": "B+",
         "OVR": 96,
@@ -287,9 +287,9 @@ export const allStars = {
     },
     "Chris Paul": {
         "Finishing": "A",
-        "Mid-Range": "A+",
+        "Mid-Range": "S",
         "3PT": "B",
-        "Playmaking": "A+",
+        "Playmaking": "S",
         "Rebounding": "C-",
         "Defense": "A+",
         "OVR": 89,
@@ -372,6 +372,39 @@ export const teams = [
     "Washington Wizards",
 ]
 
+export const teamsToAbb = {
+    "Atlanta Hawks": "atl",
+    "Boston Celtics": "bkn",
+    "Brooklyn Nets": "bos",
+    "Charlotte Hornets": "cha",
+    "Chicago Bulls": "chi",
+    "Cleveland Cavaliers": "cle",
+    "Dallas Mavericks": "dal",
+    "Denver Nuggets": "den",
+    "Detroit Pistons": "det",
+    "Golden State Warriors": "gsw",
+    "Houston Rockets": "hou",
+    "Indiana Pacers": "ind",
+    "Los Angeles Clippers": "lac",
+    "Los Angeles Lakers": "lal",
+    "Memphis Grizzlies": "mem",
+    "Miami Heat": "mia",
+    "Milwaukee Bucks": "mil",
+    "Minnesota Timberwolves": "min",
+    "New Orleans Pelicans": "nop",
+    "New York Knicks": "nyk",
+    "Oklahoma City Thunder": "okc",
+    "Orlando Magic": "orl",
+    "Philadelphia 76ers": "phi",
+    "Phoenix Suns": "phx",
+    "Portland Trail Blazers": "por",
+    "Sacramento Kings": "sac",
+    "San Antonio Spurs": "sas",
+    "Toronto Raptors": "tor",
+    "Utah Jazz": "uta",
+    "Washington Wizards": "was",
+}
+
 export const positions = [
     "PG",
     "SG",
@@ -381,8 +414,6 @@ export const positions = [
 ]
 
 export const stats = [
-    "Alphabetical",
-    "OVR",
     "Finishing",
     "Mid-Range",
     "3PT",
@@ -390,3 +421,8 @@ export const stats = [
     "Rebounding",
     "Defense",
 ]
+
+export const sortByStats = [
+    "Alphabetical",
+    "OVR"
+].concat(stats)
