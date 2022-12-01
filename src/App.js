@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
-import playerData from './assets/nba-players.json';
-import logo from './assets/nbalogo.webp'
 import Player from './components/Player';
 import Selector from './components/Selector';
 import { allStars } from './constants';
-import Collapsible from './components/Collapsible';
-
+import logo from "./assets/nba-logo-transparent.png"
 
 const gradeComparison = (a, b) => {
   const gradeToNum = {
@@ -72,7 +69,6 @@ function App() {
         }
       }
 
-      console.log(newRoster)
       setCurrRoster(newRoster)
       return true
     }
@@ -122,7 +118,7 @@ function App() {
         name={name}
         addToRoster={addPlayerToRoster}
         buttonText={Object.values(currRoster).includes(name) ? "Remove from Roster" : "Add to Roster"}
-        rosterSize={currRoster.length}
+        rosterSize={Object.values(currRoster).filter(p => p !== "").length}
       />
     )
   }
@@ -133,7 +129,7 @@ function App() {
       <div className='header'>
         <img src={logo} className="logo"
           alt='basketball'></img>
-        <h1>NBA All-Star Roster Selection</h1>
+        <h1 className='title'>NBA All-Star Roster Selection</h1>
       </div>
 
       {/* <Collapsible /> */}

@@ -5,7 +5,7 @@ export default function Roster({
 }) {
 
     const starters = Object.keys(roster).map((pos) =>
-        <p>{pos}: {roster[pos]}</p>
+        <p className="position-player">{pos}: {roster[pos]}</p>
     )
 
 
@@ -19,7 +19,7 @@ export default function Roster({
     return (
         <div className="roster">
             {starters}
-            <p>{ovrs.length === 0 ? "" : "AVG OVR: " + Math.round(ovrs.reduce((a, b) => a + b, 0) / ovrs.length)}</p>
+            <p className="roster-label">{ovrs.length === 0 ? "" : "AVG OVR: " + Math.round(ovrs.reduce((a, b) => a + b, 0) / ovrs.length)}</p>
         </div>
     )
 }

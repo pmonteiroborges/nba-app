@@ -18,7 +18,7 @@ export default function PositionSelector({
     return (
         <div className="team">
             <input onClick={setFilterToPosition} type="checkbox" id={position} name={"position"}></input>
-            <label for={position}>{position}</label><br></br>
+            <label className="position-label" for={position}>{position}</label><br></br>
         </div>
     )
 }

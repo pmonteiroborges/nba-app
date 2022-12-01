@@ -17,6 +17,7 @@ export default function Player({
     return (
         <div className='card-container'>
             <PlayerData name={name} playerData={playerData} />
+            <h4>{name}</h4>
             <PlayerStats playerData={playerData} />
 
 

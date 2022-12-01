@@ -15,7 +15,7 @@ const statToExplanation = {
     "Finishing": "how well a player can score around the rim",
     "Mid-Range": "how well a player can shoot from the mid-range",
     "3PT": "how well a player can shoot behind the three point line",
-    "Playmaking": "how well a player can faciliate his teammates",
+    "Playmaking": "how well a player can create open shots for himself and his teammates",
     "Rebounding": "how well a player can grab rebounds after a miss",
     "Defense": "how well a player can prevent the opposing player from scoring",
 }
@@ -40,13 +40,6 @@ export default function Selector({
             setShownTeams(shownTeams.filter(oldTeam => initTeams.includes(oldTeam)))
         }
     }
-
-
-    // const teamComponentsWithBreak = []
-    // for (const element of teamComponents) {
-    //     teamComponentsWithBreak.push(element)
-    //     teamComponentsWithBreak.push(<Break />)
-    // }
 
     const positionComponents = positions.map(pos =>
         <PositionSelector position={pos} setFilterByPosition={setFilterByPosition} />
@@ -83,7 +76,7 @@ export default function Selector({
             </div>
 
 
-            <div className="selector-segment">
+            <div className="selector-segment" id="positions">
                 <h4>Position</h4>
                 <div className="position-container">
                     {positionComponents}
@@ -94,7 +87,6 @@ export default function Selector({
                 <h4>Roster</h4>
                 <Roster playerData={playerData} roster={roster} />
             </div>
-
         </div>
     );
 }

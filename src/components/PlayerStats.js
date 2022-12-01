@@ -21,11 +21,16 @@ export default function PlayerStats({
     playerData,
 }) {
     const gradeStyle = (stat) => {
-        return { 'color': gradeColors[playerData[stat]] }
+        return {
+            'background-color': gradeColors[playerData[stat]],
+        }
     }
 
     const statGrades = stats.map(stat =>
-        <p className='grade'>{stat}: <span className='letter-grade' style={gradeStyle(stat)}>{playerData[stat]}</span></p>
+        <div className='grade'>
+            <span className='letter-grade' style={gradeStyle(stat)}>{playerData[stat]}</span>
+            <p> {stat} </p>
+        </div>
     )
     return (
         <div className="stats-container">

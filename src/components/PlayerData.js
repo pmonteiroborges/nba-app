@@ -29,7 +29,6 @@ export default function PlayerData({
                 <img className="player-image"
                     src={playerImageUrl(playerData["ID"])}>
                 </img>
-                <h4>{name}</h4>
             </div>
         </div>
     )

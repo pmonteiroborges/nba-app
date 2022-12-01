@@ -20,8 +20,8 @@ export default function TeamSelector({
 
     return (
         <div className="team">
-            <input onChange={setFilterToTeamName} type="checkbox" id={id} name={"team"}></input>
-            <label for={id}>{teamName}</label><br></br>
+            <input className="team-button" onChange={setFilterToTeamName} type="checkbox" id={id} name={"team"}></input>
+            <label className="team-label" for={id}>{teamName}</label><br></br>
         </div>
     )
 }
