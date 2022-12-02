@@ -1,3 +1,19 @@
+# Goal of Application + Value to User
+To show strengths and weaknesses of all-star NBA players
+and allow users to design their own roster of players.
+
+# Link
+https://cashmoneyelephant123.github.io/development/
+# Components
+App -> Selector -> PositionSelector/TeamSelector/Roster
+
+App -> Player -> PlayerData/PlayerStats
+
+Props and State: what to sort by, what to filter by, the current roster
+
+# Usability Principles
+Intuitive to use on first use, colors along with grades to show strength 
+and weaknesses, hierarchal structure
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
